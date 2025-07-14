@@ -74,6 +74,21 @@ footer {
     text-align: center;
 }
 
+.timer-settings {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+#preset-select,
+#custom-minutes {
+    padding: 0.4rem;
+    border-radius: 6px;
+    border: none;
+    background-color: #2c2c2c;
+    color: white;
+}
+
+
 #focus-display {
     font-size: 2.5rem;
     color: #ffd6a5;
@@ -390,6 +405,7 @@ body::before {
     -webkit-backdrop-filter: blur(10px) brightness(0.4);
     z-index: -1;
 }
+
 .quote {
     text-align: center;
     font-style: italic;
@@ -397,4 +413,145 @@ body::before {
     color: #ccc;
     opacity: 0;
     transition: opacity 2s ease-in-out;
+}
+
+.flip-clock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.flip-card {
+    background: linear-gradient(to bottom, #333, #222);
+    color: #ffd6a5;
+    border-radius: 12px;
+    width: 80px;
+    height: 100px;
+    perspective: 1000px;
+    position: relative;
+    text-align: center;
+    font-size: 2.5rem;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(255, 214, 165, 0.1);
+}
+
+.flip-card .top,
+.flip-card .bottom {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.6s ease-in-out;
+    backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+}
+
+.flip-card .top {
+    z-index: 2;
+    transform: rotateX(0deg);
+}
+
+.flip-card.flip .top {
+    transform: rotateX(-180deg);
+}
+
+.flip-card .bottom {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.flip-card.flip .bottom {
+    transform: rotateX(0deg);
+}
+
+.colon {
+    font-size: 3rem;
+    color: #ffd6a5;
+    margin-top: -10px;
+}
+
+.flip-clock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.flip-card {
+    position: relative;
+    width: 80px;
+    height: 100px;
+    perspective: 1000px;
+}
+
+.flip-card .top,
+.flip-card .bottom {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #333, #222);
+    color: #ffd6a5;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    backface-visibility: hidden;
+    transition: transform 0.6s ease-in-out;
+    box-shadow: 0 5px 15px rgba(255, 214, 165, 0.1);
+}
+
+.flip-card .top {
+    z-index: 2;
+    transform: rotateX(0deg);
+}
+
+.flip-card .bottom {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.flip-card.flip .top {
+    transform: rotateX(-180deg);
+}
+
+.flip-card.flip .bottom {
+    transform: rotateX(0deg);
+}
+
+.colon {
+    font-size: 3rem;
+    color: #ffd6a5;
+    margin-top: -10px;
+}
+
+.static-quote {
+    color: #f2f2f2;
+    font-style: normal;
+    margin-bottom: 1rem;
+}
+
+/* #anime-quote {
+  font-style: italic;
+  color: #ccc;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+} */
+#anime-quote {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #ffd6a5;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+  font-style: italic;
+  font-size: 1.1rem;
+  text-align: center;
+  z-index: 10;
+  position: relative;
+  transition: opacity 2s ease-in-out;
 }

@@ -1,3 +1,119 @@
+// const countdownDate = new Date("December 1, 2025 00:00:00").getTime();
+
+// const updateCountdown = () => {
+//     const now = new Date().getTime();
+//     const distance = countdownDate - now;
+
+//     if (distance <= 0) {
+//         document.getElementById("timer").innerText = "Time's up!";
+//         return;
+//     }
+
+//     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+//     const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+//     const minutes = Math.floor((distance / (1000 * 60)) % 60);
+
+//     document.getElementById("timer").innerText =
+//         `${days}d ${hours}h ${minutes}m remaining`;
+// };
+
+// setInterval(updateCountdown, 1000);
+// updateCountdown();
+// let focusTime = 25 * 60;
+// const presetSelect = document.getElementById("preset-select");
+// const customInput = document.getElementById("custom-minutes");
+
+// presetSelect.addEventListener("change", () => {
+//   if (presetSelect.value === "custom") {
+//     customInput.style.display = "inline-block";
+//   } else {
+//     customInput.style.display = "none";
+//     focusTime = parseInt(presetSelect.value);
+//     updateFocusDisplay();
+//   }
+// });
+
+// customInput.addEventListener("input", () => {
+//   const customMinutes = parseInt(customInput.value);
+//   if (!isNaN(customMinutes) && customMinutes > 0) {
+//     focusTime = customMinutes * 60;
+//     updateFocusDisplay();
+//   }
+// });
+
+// let timerInterval;
+// let isRunning = false;
+
+// function updateFocusDisplay() {
+//     const minutes = Math.floor(focusTime / 60);
+//     const seconds = focusTime % 60;
+//     document.getElementById("focus-display").innerText =
+//         `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+// }
+
+// function startTimer() {
+//     if (isRunning) return;
+//     isRunning = true;
+//     timerInterval = setInterval(() => {
+//         if (focusTime > 0) {
+//             focusTime--;
+//             updateFocusDisplay();
+//         } else {
+//             clearInterval(timerInterval);
+//             alert("Time's up Miyu! 🎉");
+//         }
+//     }, 1000);
+// }
+
+// function pauseTimer() {
+//     clearInterval(timerInterval);
+//     isRunning = false;
+// }
+
+// function resetTimer() {
+//     pauseTimer();
+//     focusTime = 25 * 60;
+//     updateFocusDisplay();
+// }
+
+// updateFocusDisplay(); // initialize display
+// let audio = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
+// audio.loop = true;
+// function updateFocusDisplay() {
+//   const minutes = Math.floor(focusTime / 60);
+//   const seconds = focusTime % 60;
+
+//   const minCard = document.getElementById("min-card");
+//   const secCard = document.getElementById("sec-card");
+
+//   const minFront = document.getElementById("min-front");
+//   const minBack = document.getElementById("min-back");
+//   const secFront = document.getElementById("sec-front");
+//   const secBack = document.getElementById("sec-back");
+
+//   const minStr = minutes.toString().padStart(2, '0');
+//   const secStr = seconds.toString().padStart(2, '0');
+
+//   if (minFront.innerText !== minStr) {
+//     minBack.innerText = minStr;
+//     minCard.classList.add("flip");
+//     setTimeout(() => {
+//       minFront.innerText = minStr;
+//       minCard.classList.remove("flip");
+//     }, 600);
+//   }
+
+//   if (secFront.innerText !== secStr) {
+//     secBack.innerText = secStr;
+//     secCard.classList.add("flip");
+//     setTimeout(() => {
+//       secFront.innerText = secStr;
+//       secCard.classList.remove("flip");
+//     }, 600);
+//   }
+// }
+
+// --- COUNTDOWN TIMER ---
 const countdownDate = new Date("December 1, 2025 00:00:00").getTime();
 
 const updateCountdown = () => {
@@ -19,15 +135,58 @@ const updateCountdown = () => {
 
 setInterval(updateCountdown, 1000);
 updateCountdown();
-let focusTime = 25 * 60; // 25 minutes
+
+// --- FOCUS TIMER SETUP ---
+let focusTime = 25 * 60;
 let timerInterval;
 let isRunning = false;
 
+const presetSelect = document.getElementById("preset-select");
+const customInput = document.getElementById("custom-minutes");
+
+presetSelect.addEventListener("change", () => {
+    if (presetSelect.value === "custom") {
+        customInput.style.display = "inline-block";
+    } else {
+        customInput.style.display = "none";
+        focusTime = parseInt(presetSelect.value);
+        updateFocusDisplay();
+    }
+});
+
+customInput.addEventListener("input", () => {
+    const customMinutes = parseInt(customInput.value);
+    if (!isNaN(customMinutes) && customMinutes > 0) {
+        focusTime = customMinutes * 60;
+        updateFocusDisplay();
+    }
+});
+
 function updateFocusDisplay() {
-    const minutes = Math.floor(focusTime / 60);
+    const hours = Math.floor(focusTime / 3600);
+    const minutes = Math.floor((focusTime % 3600) / 60);
     const seconds = focusTime % 60;
-    document.getElementById("focus-display").innerText =
-        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+    updateFlip("hr", hours);
+    updateFlip("min", minutes);
+    updateFlip("sec", seconds);
+}
+
+function updateFlip(unit, value) {
+    const front = document.getElementById(`${unit}-front`);
+    const back = document.getElementById(`${unit}-back`);
+    const card = document.getElementById(`${unit}-card`);
+
+    const valStr = value.toString().padStart(2, '0');
+
+    if (front.innerText !== valStr) {
+        back.innerText = valStr;
+        card.classList.add("flip");
+        setTimeout(() => {
+            front.innerText = valStr;
+            card.classList.remove("flip");
+        }, 600);
+    }
 }
 
 function startTimer() {
@@ -40,6 +199,7 @@ function startTimer() {
         } else {
             clearInterval(timerInterval);
             alert("Time's up Miyu! 🎉");
+            isRunning = false;
         }
     }, 1000);
 }
@@ -51,13 +211,12 @@ function pauseTimer() {
 
 function resetTimer() {
     pauseTimer();
-    focusTime = 25 * 60;
+    focusTime = parseInt(presetSelect.value) || 25 * 60;
     updateFocusDisplay();
 }
 
-updateFocusDisplay(); // initialize display
-let audio = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
-audio.loop = true;
+updateFocusDisplay();
+
 
 function toggleMusic() {
     if (audio.paused) {
@@ -226,20 +385,28 @@ const itachiQuotes = [
     "You and I are flesh and blood. I'm always going to be there for you.",
     "Even the strongest of opponents always have a weakness.",
     "No matter what darkness or contradictions lie within the village, I am still Itachi Uchiha of the Leaf."
-  ];
-  
-  function showRandomQuote() {
+];
+
+function showRandomQuote() {
     const quoteBox = document.getElementById("anime-quote");
     const random = itachiQuotes[Math.floor(Math.random() * itachiQuotes.length)];
     quoteBox.innerText = `"${random}"`;
-  
-    // fade-in effect
-    quoteBox.style.opacity = 0;
+    quoteBox.style.opacity = "0";
     setTimeout(() => {
-      quoteBox.style.transition = "opacity 2s ease-in-out";
-      quoteBox.style.opacity = 1;
-    }, 100);
-  }
-  
-  document.addEventListener("DOMContentLoaded", showRandomQuote);
-  
+        quoteBox.style.opacity = "1";
+    }, 50);
+}
+
+document.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
+    const id = checkbox.id;
+    const saved = localStorage.getItem(id);
+    if (saved === "true") {
+        checkbox.checked = true;
+    }
+
+    // checkbox.addEventListener("change", () => {
+    //     localStorage.setItem(id, checkbox.checked);
+    //     generateSmartSuggestions(); // ✅ Live update here
+    // });
+});
+

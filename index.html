@@ -11,8 +11,14 @@
 <body>
     <div class="container">
         <h1>Welcome back, Miyu 💖</h1>
-        <p class="quote">"You’ve already learned it once. You’ll do it even better this time!"</p>
-        <div class="quote" id="anime-quote"></div>
+        <!-- <p class="quote static-quote">"You’ve already learned it once. You’ll do it even better this time!"</p> -->
+        <!-- <p class="quote" id="anime-quote">...</p> -->
+        <div class="quote-container">
+            <p class="quote static-quote">"You’ve already learned it once. You’ll do it even better this time!"</p>
+            <div class="quote" id="anime-quote"></div>
+        </div>
+
+
         <div class="countdown">
             <h2>⏳ NEET Countdown</h2>
             <div id="timer">Loading...</div>
@@ -52,433 +58,466 @@
             </div>
             <div class="focus-timer">
                 <h2>🎯 Focus Timer</h2>
-                <p id="focus-display">25:00</p>
+
+                <div class="flip-clock">
+                    <div class="flip-card" id="hr-card">
+                        <div class="top" id="hr-front">00</div>
+                        <div class="bottom" id="hr-back">00</div>
+                    </div>
+                    <div class="colon">:</div>
+                    <div class="flip-card" id="min-card">
+                        <div class="top" id="min-front">00</div>
+                        <div class="bottom" id="min-back">00</div>
+                    </div>
+                    <div class="colon">:</div>
+                    <div class="flip-card" id="sec-card">
+                        <div class="top" id="sec-front">00</div>
+                        <div class="bottom" id="sec-back">00</div>
+                    </div>
+                </div>
+
+
                 <div class="btns">
                     <button onclick="startTimer()">Start</button>
                     <button onclick="pauseTimer()">Pause</button>
                     <button onclick="resetTimer()">Reset</button>
                 </div>
-            </div>
-            <div class="lofi-player">
-                <h2>🎵 Miyu’s Lofi Vibes</h2>
-                <iframe width="100%" height="166"
-                    src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=0&loop=1&playlist=jfKfPfyJRdk"
-                    title="Lofi Girl – beats to relax/study to" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-            </div>
-            <div class="weekly-planner">
-                <h2>📅 Weekly Planner</h2>
 
-                <div class="days">
-                    <div class="day">
-                        <h3>Monday</h3>
-                        <textarea id="monday" placeholder="Write your goals..."></textarea>
-                    </div>
-                    <div class="day">
-                        <h3>Tuesday</h3>
-                        <textarea id="tuesday" placeholder="Write your goals..."></textarea>
-                    </div>
-                    <div class="day">
-                        <h3>Wednesday</h3>
-                        <textarea id="wednesday" placeholder="Write your goals..."></textarea>
-                    </div>
-                    <div class="day">
-                        <h3>Thursday</h3>
-                        <textarea id="thursday" placeholder="Write your goals..."></textarea>
-                    </div>
-                    <div class="day">
-                        <h3>Friday</h3>
-                        <textarea id="friday" placeholder="Write your goals..."></textarea>
-                    </div>
-                    <div class="day">
-                        <h3>Saturday</h3>
-                        <textarea id="saturday" placeholder="Write your goals..."></textarea>
-                    </div>
-                    <div class="day">
-                        <h3>Sunday</h3>
-                        <textarea id="sunday" placeholder="Write your goals..."></textarea>
-                    </div>
-
-                </div>
-
-                <div class="calendar-roadmap">
-                    <h2>🗓️ Miyu's NEET Calendar Roadmap</h2>
-
-                    <details>
-                        <summary>July 2025</summary>
-                        <div id="july-calendar" class="month-grid"></div>
-                    </details>
-
-                    <details>
-                        <summary>August 2025</summary>
-                        <div id="august-calendar" class="month-grid"></div>
-                    </details>
-
-                    <details>
-                        <summary>September 2025</summary>
-                        <div id="september-calendar" class="month-grid"></div>
-                    </details>
-
-                    <details>
-                        <summary>October 2025</summary>
-                        <div id="october-calendar" class="month-grid"></div>
-                    </details>
-
-                    <details>
-                        <summary>November 2025</summary>
-                        <div id="november-calendar" class="month-grid"></div>
-                    </details>
-
-                    <details>
-                        <summary>December 2025</summary>
-                        <div id="december-calendar" class="month-grid"></div>
-                    </details>
-                </div>
-
-            </div>
-            <div class="progress-tracker">
-                <h2>📊 Progress Tracker</h2>
-
-                <div class="subject" id="chemistry">
-                    <h3>🧪 Chemistry</h3>
-
-                    <details>
-                        <summary>Organic Chemistry</summary>
-                        <details>
-                            <summary>1. Basic Principles & Techniques</summary>
-                            <label><input type="checkbox" id="org-basic-empirical"> Empirical & Molecular
-                                Formula</label><br>
-                            <label><input type="checkbox" id="org-basic-nomenclature"> IUPAC Naming &
-                                Isomerism</label><br>
-                            <label><input type="checkbox" id="org-basic-cleavage"> Homolytic & Heterolytic
-                                Cleavage</label><br>
-                        </details>
-
-                        <details>
-                            <summary>2. Hydrocarbons</summary>
-                            <label><input type="checkbox" id="org-hydro-alkanes"> Alkanes</label><br>
-                            <label><input type="checkbox" id="org-hydro-alkenes"> Alkenes</label><br>
-                            <label><input type="checkbox" id="org-hydro-alkynes"> Alkynes</label><br>
-                            <label><input type="checkbox" id="org-hydro-aromatic"> Aromatic Compounds</label><br>
-                        </details>
-
-                        <details>
-                            <summary>3. Alcohols, Phenols & Ethers</summary>
-                            <label><input type="checkbox" id="org-alc-alcohols"> Alcohols</label><br>
-                            <label><input type="checkbox" id="org-alc-phenols"> Phenols</label><br>
-                            <label><input type="checkbox" id="org-alc-ethers"> Ethers</label><br>
-                        </details>
-                    </details>
-
-
-                    <details>
-                        <summary>Inorganic Chemistry</summary>
-
-                        <details>
-                            <summary>1. Classification of Elements</summary>
-                            <label><input type="checkbox" id="inorg-periodic-trends"> Periodic Table &
-                                Trends</label><br>
-                            <label><input type="checkbox" id="inorg-valency"> Valency & Electron
-                                Configuration</label><br>
-                        </details>
-
-                        <details>
-                            <summary>2. Chemical Bonding & Molecular Structure</summary>
-                            <label><input type="checkbox" id="inorg-bonding-types"> Types of Bonds</label><br>
-                            <label><input type="checkbox" id="inorg-vsepr"> VSEPR Theory</label><br>
-                            <label><input type="checkbox" id="inorg-hybridization"> Hybridization</label><br>
-                            <label><input type="checkbox" id="inorg-orbital"> Molecular Orbital Theory</label><br>
-                        </details>
-
-                        <details>
-                            <summary>3. Coordination Compounds</summary>
-                            <label><input type="checkbox" id="inorg-ligands"> Ligands & Coordination Number</label><br>
-                            <label><input type="checkbox" id="inorg-nomenclature"> Nomenclature of Complexes</label><br>
-                            <label><input type="checkbox" id="inorg-isomerism"> Isomerism in Complexes</label><br>
-                            <label><input type="checkbox" id="inorg-cft"> Crystal Field Theory</label><br>
-                        </details>
-                    </details>
-
-
-                    <details>
-                        <summary>Physical Chemistry</summary>
-
-                        <details>
-                            <summary>1. Mole Concept & Stoichiometry</summary>
-                            <label><input type="checkbox" id="phys-mole-basics"> Mole Concept Basics</label><br>
-                            <label><input type="checkbox" id="phys-stoichiometry"> Stoichiometric
-                                Calculations</label><br>
-                        </details>
-
-                        <details>
-                            <summary>2. States of Matter & Thermodynamics</summary>
-                            <label><input type="checkbox" id="phys-gases"> Ideal Gas Laws</label><br>
-                            <label><input type="checkbox" id="phys-kinetic"> Kinetic Theory of Gases</label><br>
-                            <label><input type="checkbox" id="phys-thermodynamics"> Thermodynamics</label><br>
-                            <label><input type="checkbox" id="phys-enthalpy"> Enthalpy & Entropy</label><br>
-                        </details>
-
-                        <details>
-                            <summary>3. Equilibrium & Electrochemistry</summary>
-                            <label><input type="checkbox" id="phys-chemical-equilibrium"> Chemical
-                                Equilibrium</label><br>
-                            <label><input type="checkbox" id="phys-ionic-equilibrium"> Ionic Equilibrium</label><br>
-                            <label><input type="checkbox" id="phys-electrochemistry"> Electrochemistry</label><br>
-                        </details>
-
-                        <details>
-                            <summary>4. Surface Chemistry & Solid State</summary>
-                            <label><input type="checkbox" id="phys-surface"> Adsorption & Catalysis</label><br>
-                            <label><input type="checkbox" id="phys-solid"> Solid State Structures</label><br>
-                        </details>
-                    </details>
-
+                <div class="timer-settings">
+                    <label for="preset-select">Choose Duration:</label>
+                    <select id="preset-select">
+                        <option value="1500">25 min (Pomodoro)</option>
+                        <option value="3600">1 hour</option>
+                        <option value="10800">3 hours (NEET Practice)</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                    <input type="number" id="custom-minutes" placeholder="Enter minutes"
+                        style="display:none; margin-top: 0.5rem;" />
                 </div>
             </div>
 
-            <!-- BIOLOGY -->
-            <div class="subject" id="biology">
-                <h3>🧬 Biology</h3>
 
-                <details>
-                    <summary>Botany</summary>
+        </div>
+        <div class="lofi-player">
+            <h2>🎵 Miyu’s Lofi Vibes</h2>
+            <iframe width="100%" height="166"
+                src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=0&loop=1&playlist=jfKfPfyJRdk"
+                title="Lofi Girl – beats to relax/study to" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+        <div class="weekly-planner">
+            <h2>📅 Weekly Planner</h2>
 
-                    <details>
-                        <summary>1. Diversity of Life</summary>
-                        <label><input type="checkbox" id="botany-living-world"> The Living World</label><br>
-                        <label><input type="checkbox" id="botany-plant-kingdom"> Plant Kingdom</label><br>
-                        <label><input type="checkbox" id="botany-morphology"> Morphology of Flowering Plants</label><br>
-                        <label><input type="checkbox" id="botany-anatomy"> Anatomy of Flowering Plants</label><br>
-                    </details>
-
-                    <details>
-                        <summary>2. Plant Physiology</summary>
-                        <label><input type="checkbox" id="botany-photosynthesis"> Photosynthesis</label><br>
-                        <label><input type="checkbox" id="botany-respiration"> Respiration in Plants</label><br>
-                        <label><input type="checkbox" id="botany-transpiration"> Transport in Plants</label><br>
-                        <label><input type="checkbox" id="botany-growth"> Growth & Development</label><br>
-                    </details>
-
-                    <details>
-                        <summary>3. Reproduction in Plants</summary>
-                        <label><input type="checkbox" id="botany-sexual"> Sexual Reproduction in Flowering
-                            Plants</label><br>
-                        <label><input type="checkbox" id="botany-pollination"> Pollination & Fertilization</label><br>
-                        <label><input type="checkbox" id="botany-seed"> Seed Formation & Germination</label><br>
-                    </details>
-
-                </details>
-
-                <details>
-                    <summary>Zoology</summary>
-
-                    <details>
-                        <summary>1. Structural Organisation & Physiology</summary>
-                        <label><input type="checkbox" id="zoo-animal-kingdom"> Animal Kingdom</label><br>
-                        <label><input type="checkbox" id="zoo-tissues"> Animal Tissues</label><br>
-                        <label><input type="checkbox" id="zoo-human-body"> Structural Organisation in
-                            Animals</label><br>
-                    </details>
-
-                    <details>
-                        <summary>2. Human Physiology</summary>
-                        <label><input type="checkbox" id="zoo-digestion"> Digestion & Absorption</label><br>
-                        <label><input type="checkbox" id="zoo-respiration"> Breathing & Exchange of Gases</label><br>
-                        <label><input type="checkbox" id="zoo-circulation"> Body Fluids & Circulation</label><br>
-                        <label><input type="checkbox" id="zoo-excretion"> Excretory System</label><br>
-                        <label><input type="checkbox" id="zoo-neural"> Neural Control & Coordination</label><br>
-                        <label><input type="checkbox" id="zoo-endocrine"> Endocrine System</label><br>
-                    </details>
-
-                    <details>
-                        <summary>3. Reproduction & Genetics</summary>
-                        <label><input type="checkbox" id="zoo-human-repro"> Human Reproduction</label><br>
-                        <label><input type="checkbox" id="zoo-reproductive-health"> Reproductive Health</label><br>
-                        <label><input type="checkbox" id="zoo-genetics"> Principles of Inheritance &
-                            Variation</label><br>
-                        <label><input type="checkbox" id="zoo-evolution"> Evolution</label><br>
-                    </details>
-
-                </details>
+            <div class="days">
+                <div class="day">
+                    <h3>Monday</h3>
+                    <textarea id="monday" placeholder="Write your goals..."></textarea>
+                </div>
+                <div class="day">
+                    <h3>Tuesday</h3>
+                    <textarea id="tuesday" placeholder="Write your goals..."></textarea>
+                </div>
+                <div class="day">
+                    <h3>Wednesday</h3>
+                    <textarea id="wednesday" placeholder="Write your goals..."></textarea>
+                </div>
+                <div class="day">
+                    <h3>Thursday</h3>
+                    <textarea id="thursday" placeholder="Write your goals..."></textarea>
+                </div>
+                <div class="day">
+                    <h3>Friday</h3>
+                    <textarea id="friday" placeholder="Write your goals..."></textarea>
+                </div>
+                <div class="day">
+                    <h3>Saturday</h3>
+                    <textarea id="saturday" placeholder="Write your goals..."></textarea>
+                </div>
+                <div class="day">
+                    <h3>Sunday</h3>
+                    <textarea id="sunday" placeholder="Write your goals..."></textarea>
+                </div>
 
             </div>
 
-            <!-- PHYSICS -->
-            <div class="subject" id="physics">
-                <h3>⚡ Physics</h3>
+            <div class="calendar-roadmap">
+                <h2>🗓️ Miyu's NEET Calendar Roadmap</h2>
 
                 <details>
-                    <summary>Mechanics & Thermodynamics</summary>
+                    <summary>July 2025</summary>
+                    <div id="july-calendar" class="month-grid"></div>
+                </details>
 
+                <details>
+                    <summary>August 2025</summary>
+                    <div id="august-calendar" class="month-grid"></div>
+                </details>
+
+                <details>
+                    <summary>September 2025</summary>
+                    <div id="september-calendar" class="month-grid"></div>
+                </details>
+
+                <details>
+                    <summary>October 2025</summary>
+                    <div id="october-calendar" class="month-grid"></div>
+                </details>
+
+                <details>
+                    <summary>November 2025</summary>
+                    <div id="november-calendar" class="month-grid"></div>
+                </details>
+
+                <details>
+                    <summary>December 2025</summary>
+                    <div id="december-calendar" class="month-grid"></div>
+                </details>
+            </div>
+
+        </div>
+        <div class="progress-tracker">
+            <h2>📊 Progress Tracker</h2>
+
+            <div class="subject" id="chemistry">
+                <h3>🧪 Chemistry</h3>
+
+                <details>
+                    <summary>Organic Chemistry</summary>
                     <details>
-                        <summary>1. Units, Motion & Forces</summary>
-                        <label><input type="checkbox" id="phys-units"> Units & Measurements</label><br>
-                        <label><input type="checkbox" id="phys-motion-1d"> Motion in a Straight Line</label><br>
-                        <label><input type="checkbox" id="phys-motion-2d"> Motion in a Plane</label><br>
-                        <label><input type="checkbox" id="phys-laws"> Laws of Motion</label><br>
+                        <summary>1. Basic Principles & Techniques</summary>
+                        <label><input type="checkbox" id="org-basic-empirical"> Empirical & Molecular
+                            Formula</label><br>
+                        <label><input type="checkbox" id="org-basic-nomenclature"> IUPAC Naming &
+                            Isomerism</label><br>
+                        <label><input type="checkbox" id="org-basic-cleavage"> Homolytic & Heterolytic
+                            Cleavage</label><br>
                     </details>
 
                     <details>
-                        <summary>2. Work, Energy, Rotation</summary>
-                        <label><input type="checkbox" id="phys-work-energy"> Work, Power & Energy</label><br>
-                        <label><input type="checkbox" id="phys-systems"> System of Particles & Rigid Body</label><br>
-                        <label><input type="checkbox" id="phys-rotation"> Rotational Motion</label><br>
-                        <label><input type="checkbox" id="phys-gravity"> Gravitation</label><br>
+                        <summary>2. Hydrocarbons</summary>
+                        <label><input type="checkbox" id="org-hydro-alkanes"> Alkanes</label><br>
+                        <label><input type="checkbox" id="org-hydro-alkenes"> Alkenes</label><br>
+                        <label><input type="checkbox" id="org-hydro-alkynes"> Alkynes</label><br>
+                        <label><input type="checkbox" id="org-hydro-aromatic"> Aromatic Compounds</label><br>
                     </details>
 
                     <details>
-                        <summary>3. Fluid & Thermal Physics</summary>
-                        <label><input type="checkbox" id="phys-fluid"> Mechanical Properties of Fluids</label><br>
-                        <label><input type="checkbox" id="phys-solids"> Mechanical Properties of Solids</label><br>
-                        <label><input type="checkbox" id="phys-thermal"> Thermal Properties of Matter</label><br>
-                        <label><input type="checkbox" id="phys-thermo"> Thermodynamics</label><br>
-                        <label><input type="checkbox" id="phys-kinetic-theory"> Kinetic Theory of Gases</label><br>
+                        <summary>3. Alcohols, Phenols & Ethers</summary>
+                        <label><input type="checkbox" id="org-alc-alcohols"> Alcohols</label><br>
+                        <label><input type="checkbox" id="org-alc-phenols"> Phenols</label><br>
+                        <label><input type="checkbox" id="org-alc-ethers"> Ethers</label><br>
                     </details>
-
                 </details>
 
 
                 <details>
-                    <summary>Electrodynamics, Optics & Modern Physics</summary>
+                    <summary>Inorganic Chemistry</summary>
 
                     <details>
-                        <summary>4. Electrostatics & Current Electricity</summary>
-                        <label><input type="checkbox" id="phys-electrostatics"> Electrostatics</label><br>
-                        <label><input type="checkbox" id="phys-capacitance"> Capacitance</label><br>
-                        <label><input type="checkbox" id="phys-current"> Current Electricity</label><br>
+                        <summary>1. Classification of Elements</summary>
+                        <label><input type="checkbox" id="inorg-periodic-trends"> Periodic Table &
+                            Trends</label><br>
+                        <label><input type="checkbox" id="inorg-valency"> Valency & Electron
+                            Configuration</label><br>
                     </details>
 
                     <details>
-                        <summary>5. Magnetism & EMI</summary>
-                        <label><input type="checkbox" id="phys-magnetism"> Magnetism</label><br>
-                        <label><input type="checkbox" id="phys-emi"> Electromagnetic Induction</label><br>
-                        <label><input type="checkbox" id="phys-alternating"> Alternating Current</label><br>
+                        <summary>2. Chemical Bonding & Molecular Structure</summary>
+                        <label><input type="checkbox" id="inorg-bonding-types"> Types of Bonds</label><br>
+                        <label><input type="checkbox" id="inorg-vsepr"> VSEPR Theory</label><br>
+                        <label><input type="checkbox" id="inorg-hybridization"> Hybridization</label><br>
+                        <label><input type="checkbox" id="inorg-orbital"> Molecular Orbital Theory</label><br>
                     </details>
 
                     <details>
-                        <summary>6. Waves & Optics</summary>
-                        <label><input type="checkbox" id="phys-waves"> Waves</label><br>
-                        <label><input type="checkbox" id="phys-ray-optics"> Ray Optics</label><br>
-                        <label><input type="checkbox" id="phys-wave-optics"> Wave Optics</label><br>
+                        <summary>3. Coordination Compounds</summary>
+                        <label><input type="checkbox" id="inorg-ligands"> Ligands & Coordination Number</label><br>
+                        <label><input type="checkbox" id="inorg-nomenclature"> Nomenclature of Complexes</label><br>
+                        <label><input type="checkbox" id="inorg-isomerism"> Isomerism in Complexes</label><br>
+                        <label><input type="checkbox" id="inorg-cft"> Crystal Field Theory</label><br>
+                    </details>
+                </details>
+
+
+                <details>
+                    <summary>Physical Chemistry</summary>
+
+                    <details>
+                        <summary>1. Mole Concept & Stoichiometry</summary>
+                        <label><input type="checkbox" id="phys-mole-basics"> Mole Concept Basics</label><br>
+                        <label><input type="checkbox" id="phys-stoichiometry"> Stoichiometric
+                            Calculations</label><br>
                     </details>
 
                     <details>
-                        <summary>7. Modern Physics</summary>
-                        <label><input type="checkbox" id="phys-dual-nature"> Dual Nature of Radiation</label><br>
-                        <label><input type="checkbox" id="phys-atoms"> Atoms & Nuclei</label><br>
-                        <label><input type="checkbox" id="phys-semiconductors"> Semiconductors</label><br>
-                        <label><input type="checkbox" id="phys-communication"> Communication Systems</label><br>
+                        <summary>2. States of Matter & Thermodynamics</summary>
+                        <label><input type="checkbox" id="phys-gases"> Ideal Gas Laws</label><br>
+                        <label><input type="checkbox" id="phys-kinetic"> Kinetic Theory of Gases</label><br>
+                        <label><input type="checkbox" id="phys-thermodynamics"> Thermodynamics</label><br>
+                        <label><input type="checkbox" id="phys-enthalpy"> Enthalpy & Entropy</label><br>
                     </details>
 
+                    <details>
+                        <summary>3. Equilibrium & Electrochemistry</summary>
+                        <label><input type="checkbox" id="phys-chemical-equilibrium"> Chemical
+                            Equilibrium</label><br>
+                        <label><input type="checkbox" id="phys-ionic-equilibrium"> Ionic Equilibrium</label><br>
+                        <label><input type="checkbox" id="phys-electrochemistry"> Electrochemistry</label><br>
+                    </details>
+
+                    <details>
+                        <summary>4. Surface Chemistry & Solid State</summary>
+                        <label><input type="checkbox" id="phys-surface"> Adsorption & Catalysis</label><br>
+                        <label><input type="checkbox" id="phys-solid"> Solid State Structures</label><br>
+                    </details>
                 </details>
 
             </div>
-            <section class="calendar-view">
-                <h2>📅 Monthly Roadmap</h2>
+        </div>
+
+        <!-- BIOLOGY -->
+        <div class="subject" id="biology">
+            <h3>🧬 Biology</h3>
+
+            <details>
+                <summary>Botany</summary>
 
                 <details>
-                    <summary>🗓️ July</summary>
-                    <ul>
-                        <li data-topic="org-hydro-alkanes phys-motion-1d botany-plant-kingdom">
-                            <strong>Week 3 (15–21):</strong> Organic - Hydrocarbons, Physics - Motion in 1D, Bio - Plant
-                            Kingdom
-                        </li>
-                        <li data-topic="inorg-periodic-trends phys-laws botany-morphology">
-                            <strong>Week 4 (22–31):</strong> Inorganic - Periodic Trends, Physics - Laws of Motion, Bio
-                            - Morphology
-                        </li>
-                    </ul>
+                    <summary>1. Diversity of Life</summary>
+                    <label><input type="checkbox" id="botany-living-world"> The Living World</label><br>
+                    <label><input type="checkbox" id="botany-plant-kingdom"> Plant Kingdom</label><br>
+                    <label><input type="checkbox" id="botany-morphology"> Morphology of Flowering Plants</label><br>
+                    <label><input type="checkbox" id="botany-anatomy"> Anatomy of Flowering Plants</label><br>
                 </details>
 
                 <details>
-                    <summary>🗓️ August</summary>
-                    <ul>
-                        <li data-topic="phys-mole-basics botany-photosynthesis phys-work-energy">
-                            <strong>Week 1:</strong> Physical Chem - Mole Concept, Bio - Photosynthesis, Physics - Work
-                            & Energy
-                        </li>
-                        <li data-topic="inorg-nomenclature botany-anatomy phys-rotation">
-                            <strong>Week 2:</strong> Coordination Compounds, Bio - Anatomy, Physics - Rotation
-                        </li>
-                        <li data-topic="phys-thermodynamics botany-respiration phys-gravity">
-                            <strong>Week 3:</strong> Thermodynamics, Respiration in Plants, Gravitation
-                        </li>
-                        <li data-topic="zoo-animal-kingdom zoo-excretion phys-fluid">
-                            <strong>Week 4:</strong> Animal Kingdom, Excretory System, Fluids
-                        </li>
-                    </ul>
+                    <summary>2. Plant Physiology</summary>
+                    <label><input type="checkbox" id="botany-photosynthesis"> Photosynthesis</label><br>
+                    <label><input type="checkbox" id="botany-respiration"> Respiration in Plants</label><br>
+                    <label><input type="checkbox" id="botany-transpiration"> Transport in Plants</label><br>
+                    <label><input type="checkbox" id="botany-growth"> Growth & Development</label><br>
                 </details>
 
                 <details>
-                    <summary>🗓️ September</summary>
-                    <ul>
-                        <li data-topic="phys-electrostatics zoo-human-repro phys-thermal">
-                            <strong>Week 1:</strong> Electrostatics, Human Reproduction, Thermo Properties
-                        </li>
-                        <li data-topic="phys-current zoo-reproductive-health phys-waves">
-                            <strong>Week 2:</strong> Current Electricity, Reproductive Health, Sound
-                        </li>
-                        <li data-topic="phys-magnetism zoo-neural phys-solid">
-                            <strong>Week 3:</strong> Magnetism, Neural Control, Solid State
-                        </li>
-                        <li data-topic="phys-emi zoo-endocrine inorg-bonding-types">
-                            <strong>Week 4:</strong> EMI, Endocrine, Chemical Bonding
-                        </li>
-                    </ul>
+                    <summary>3. Reproduction in Plants</summary>
+                    <label><input type="checkbox" id="botany-sexual"> Sexual Reproduction in Flowering
+                        Plants</label><br>
+                    <label><input type="checkbox" id="botany-pollination"> Pollination & Fertilization</label><br>
+                    <label><input type="checkbox" id="botany-seed"> Seed Formation & Germination</label><br>
+                </details>
+
+            </details>
+
+            <details>
+                <summary>Zoology</summary>
+
+                <details>
+                    <summary>1. Structural Organisation & Physiology</summary>
+                    <label><input type="checkbox" id="zoo-animal-kingdom"> Animal Kingdom</label><br>
+                    <label><input type="checkbox" id="zoo-tissues"> Animal Tissues</label><br>
+                    <label><input type="checkbox" id="zoo-human-body"> Structural Organisation in
+                        Animals</label><br>
                 </details>
 
                 <details>
-                    <summary>🗓️ October</summary>
-                    <ul>
-                        <li data-topic="phys-dual-nature zoo-genetics phys-surface">
-                            <strong>Week 1:</strong> Dual Nature, Genetics, Surface Chemistry
-                        </li>
-                        <li data-topic="phys-atoms zoo-evolution phys-wave-optics">
-                            <strong>Week 2:</strong> Atoms & Nuclei, Evolution, Wave Optics
-                        </li>
-                        <li data-topic="phys-semiconductors zoo-ecology-1 phys-ray-optics">
-                            <strong>Week 3:</strong> Semiconductors, Ecology 1, AC & Ray Optics
-                        </li>
-                        <li data-topic="phys-communication zoo-ecology-2">
-                            <strong>Week 4:</strong> Communication, Ecology 2, Mock Test
-                        </li>
-                    </ul>
+                    <summary>2. Human Physiology</summary>
+                    <label><input type="checkbox" id="zoo-digestion"> Digestion & Absorption</label><br>
+                    <label><input type="checkbox" id="zoo-respiration"> Breathing & Exchange of Gases</label><br>
+                    <label><input type="checkbox" id="zoo-circulation"> Body Fluids & Circulation</label><br>
+                    <label><input type="checkbox" id="zoo-excretion"> Excretory System</label><br>
+                    <label><input type="checkbox" id="zoo-neural"> Neural Control & Coordination</label><br>
+                    <label><input type="checkbox" id="zoo-endocrine"> Endocrine System</label><br>
                 </details>
 
                 <details>
-                    <summary>🗓️ November</summary>
-                    <ul>
-                        <li data-topic="">
-                            <strong>Full month:</strong> Mixed Revision, Timed Practice Tests
-                        </li>
-                    </ul>
+                    <summary>3. Reproduction & Genetics</summary>
+                    <label><input type="checkbox" id="zoo-human-repro"> Human Reproduction</label><br>
+                    <label><input type="checkbox" id="zoo-reproductive-health"> Reproductive Health</label><br>
+                    <label><input type="checkbox" id="zoo-genetics"> Principles of Inheritance &
+                        Variation</label><br>
+                    <label><input type="checkbox" id="zoo-evolution"> Evolution</label><br>
+                </details>
+
+            </details>
+
+        </div>
+
+        <!-- PHYSICS -->
+        <div class="subject" id="physics">
+            <h3>⚡ Physics</h3>
+
+            <details>
+                <summary>Mechanics & Thermodynamics</summary>
+
+                <details>
+                    <summary>1. Units, Motion & Forces</summary>
+                    <label><input type="checkbox" id="phys-units"> Units & Measurements</label><br>
+                    <label><input type="checkbox" id="phys-motion-1d"> Motion in a Straight Line</label><br>
+                    <label><input type="checkbox" id="phys-motion-2d"> Motion in a Plane</label><br>
+                    <label><input type="checkbox" id="phys-laws"> Laws of Motion</label><br>
                 </details>
 
                 <details>
-                    <summary>🗓️ December</summary>
-                    <ul>
-                        <li data-topic="">
-                            <strong>Full month:</strong> Crash Revision + Full NEET Mocks + Doubt Clearing
-                        </li>
-                    </ul>
+                    <summary>2. Work, Energy, Rotation</summary>
+                    <label><input type="checkbox" id="phys-work-energy"> Work, Power & Energy</label><br>
+                    <label><input type="checkbox" id="phys-systems"> System of Particles & Rigid Body</label><br>
+                    <label><input type="checkbox" id="phys-rotation"> Rotational Motion</label><br>
+                    <label><input type="checkbox" id="phys-gravity"> Gravitation</label><br>
                 </details>
-            </section>
 
-            <div class="suggestion-box">
-                <h2>🧠 Smart Suggestions</h2>
-                <div id="suggestions">Analyzing your progress...</div>
-            </div>
+                <details>
+                    <summary>3. Fluid & Thermal Physics</summary>
+                    <label><input type="checkbox" id="phys-fluid"> Mechanical Properties of Fluids</label><br>
+                    <label><input type="checkbox" id="phys-solids"> Mechanical Properties of Solids</label><br>
+                    <label><input type="checkbox" id="phys-thermal"> Thermal Properties of Matter</label><br>
+                    <label><input type="checkbox" id="phys-thermo"> Thermodynamics</label><br>
+                    <label><input type="checkbox" id="phys-kinetic-theory"> Kinetic Theory of Gases</label><br>
+                </details>
+
+            </details>
 
 
+            <details>
+                <summary>Electrodynamics, Optics & Modern Physics</summary>
 
+                <details>
+                    <summary>4. Electrostatics & Current Electricity</summary>
+                    <label><input type="checkbox" id="phys-electrostatics"> Electrostatics</label><br>
+                    <label><input type="checkbox" id="phys-capacitance"> Capacitance</label><br>
+                    <label><input type="checkbox" id="phys-current"> Current Electricity</label><br>
+                </details>
 
+                <details>
+                    <summary>5. Magnetism & EMI</summary>
+                    <label><input type="checkbox" id="phys-magnetism"> Magnetism</label><br>
+                    <label><input type="checkbox" id="phys-emi"> Electromagnetic Induction</label><br>
+                    <label><input type="checkbox" id="phys-alternating"> Alternating Current</label><br>
+                </details>
 
-            <footer>Made with 🖤 by Aayush for Miyu</footer>
+                <details>
+                    <summary>6. Waves & Optics</summary>
+                    <label><input type="checkbox" id="phys-waves"> Waves</label><br>
+                    <label><input type="checkbox" id="phys-ray-optics"> Ray Optics</label><br>
+                    <label><input type="checkbox" id="phys-wave-optics"> Wave Optics</label><br>
+                </details>
+
+                <details>
+                    <summary>7. Modern Physics</summary>
+                    <label><input type="checkbox" id="phys-dual-nature"> Dual Nature of Radiation</label><br>
+                    <label><input type="checkbox" id="phys-atoms"> Atoms & Nuclei</label><br>
+                    <label><input type="checkbox" id="phys-semiconductors"> Semiconductors</label><br>
+                    <label><input type="checkbox" id="phys-communication"> Communication Systems</label><br>
+                </details>
+
+            </details>
+
+        </div>
+        <section class="calendar-view">
+            <h2>📅 Monthly Roadmap</h2>
+
+            <details>
+                <summary>🗓️ July</summary>
+                <ul>
+                    <li data-topic="org-hydro-alkanes phys-motion-1d botany-plant-kingdom">
+                        <strong>Week 3 (15–21):</strong> Organic - Hydrocarbons, Physics - Motion in 1D, Bio - Plant
+                        Kingdom
+                    </li>
+                    <li data-topic="inorg-periodic-trends phys-laws botany-morphology">
+                        <strong>Week 4 (22–31):</strong> Inorganic - Periodic Trends, Physics - Laws of Motion, Bio
+                        - Morphology
+                    </li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>🗓️ August</summary>
+                <ul>
+                    <li data-topic="phys-mole-basics botany-photosynthesis phys-work-energy">
+                        <strong>Week 1:</strong> Physical Chem - Mole Concept, Bio - Photosynthesis, Physics - Work
+                        & Energy
+                    </li>
+                    <li data-topic="inorg-nomenclature botany-anatomy phys-rotation">
+                        <strong>Week 2:</strong> Coordination Compounds, Bio - Anatomy, Physics - Rotation
+                    </li>
+                    <li data-topic="phys-thermodynamics botany-respiration phys-gravity">
+                        <strong>Week 3:</strong> Thermodynamics, Respiration in Plants, Gravitation
+                    </li>
+                    <li data-topic="zoo-animal-kingdom zoo-excretion phys-fluid">
+                        <strong>Week 4:</strong> Animal Kingdom, Excretory System, Fluids
+                    </li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>🗓️ September</summary>
+                <ul>
+                    <li data-topic="phys-electrostatics zoo-human-repro phys-thermal">
+                        <strong>Week 1:</strong> Electrostatics, Human Reproduction, Thermo Properties
+                    </li>
+                    <li data-topic="phys-current zoo-reproductive-health phys-waves">
+                        <strong>Week 2:</strong> Current Electricity, Reproductive Health, Sound
+                    </li>
+                    <li data-topic="phys-magnetism zoo-neural phys-solid">
+                        <strong>Week 3:</strong> Magnetism, Neural Control, Solid State
+                    </li>
+                    <li data-topic="phys-emi zoo-endocrine inorg-bonding-types">
+                        <strong>Week 4:</strong> EMI, Endocrine, Chemical Bonding
+                    </li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>🗓️ October</summary>
+                <ul>
+                    <li data-topic="phys-dual-nature zoo-genetics phys-surface">
+                        <strong>Week 1:</strong> Dual Nature, Genetics, Surface Chemistry
+                    </li>
+                    <li data-topic="phys-atoms zoo-evolution phys-wave-optics">
+                        <strong>Week 2:</strong> Atoms & Nuclei, Evolution, Wave Optics
+                    </li>
+                    <li data-topic="phys-semiconductors zoo-ecology-1 phys-ray-optics">
+                        <strong>Week 3:</strong> Semiconductors, Ecology 1, AC & Ray Optics
+                    </li>
+                    <li data-topic="phys-communication zoo-ecology-2">
+                        <strong>Week 4:</strong> Communication, Ecology 2, Mock Test
+                    </li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>🗓️ November</summary>
+                <ul>
+                    <li data-topic="">
+                        <strong>Full month:</strong> Mixed Revision, Timed Practice Tests
+                    </li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>🗓️ December</summary>
+                <ul>
+                    <li data-topic="">
+                        <strong>Full month:</strong> Crash Revision + Full NEET Mocks + Doubt Clearing
+                    </li>
+                </ul>
+            </details>
+        </section>
+
+        <div class="suggestion-box">
+            <h2>🧠 Smart Suggestions</h2>
+            <div id="suggestions">Analyzing your progress...</div>
         </div>
 
 
-        <script src="script.js"></script>
+
+
+
+        <footer>Made with 🖤 by Aayush for Miyu</footer>
+    </div>
+
+
+    <script src="script.js"></script>
 </body>
 
 </html>
