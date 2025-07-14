@@ -98,13 +98,35 @@
 
         </div>
         <div class="lofi-player">
-            <h2>🎵 Miyu’s Lofi Vibes</h2>
-            <iframe width="100%" height="166"
-                src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=0&loop=1&playlist=jfKfPfyJRdk"
-                title="Lofi Girl – beats to relax/study to" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+            <h2>🎵 Miyu’s Music Mode</h2>
+
+            <div class="music-toggle">
+                <button onclick="showLofi()">🌸 Lofi Vibes</button>
+                <button onclick="showMotivation()">🔥 Song Mode</button>
+            </div>
+
+            <div id="lofi-section">
+                <iframe width="100%" height="166"
+                    src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=0&loop=1&playlist=jfKfPfyJRdk"
+                    title="Lofi Girl – beats to relax/study to" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+
+            <div id="motivation-section" style="display: none;">
+                <div class="video-buttons">
+                    <button onclick="loadVideo('V-qcywY7LRs')">Je te laisserai des mots</button>
+                    <button onclick="loadVideo('r0McrrrFNtA')">Atlantis</button>
+                    <button onclick="loadVideo('kFp-2UxBiYE')">Cry- Cigarettes after S*x</button>
+                </div>
+                <iframe id="motivational-video" width="100%" height="315"
+                    src="https://www.youtube.com/embed/V-qcywY7LRs" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
         </div>
+
+
         <div class="weekly-planner">
             <h2>📅 Weekly Planner</h2>
 

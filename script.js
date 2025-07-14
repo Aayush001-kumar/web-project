@@ -415,3 +415,21 @@ document.addEventListener("DOMContentLoaded", () => {
     quoteBox.style.opacity = "1";
   }, 100); // Slight delay for fade-in
 });
+function loadVideo(videoId) {
+    const player = document.getElementById('motivational-video');
+    player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+}
+function showLofi() {
+    document.getElementById('lofi-section').style.display = 'block';
+    document.getElementById('motivation-section').style.display = 'none';
+}
+
+function showMotivation() {
+    document.getElementById('lofi-section').style.display = 'none';
+    document.getElementById('motivation-section').style.display = 'block';
+}
+
+function loadVideo(videoId) {
+    const player = document.getElementById('motivational-video');
+    player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+}
