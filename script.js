@@ -388,25 +388,30 @@ const itachiQuotes = [
 ];
 
 function showRandomQuote() {
-    const quoteBox = document.getElementById("anime-quote");
-    const random = itachiQuotes[Math.floor(Math.random() * itachiQuotes.length)];
-    quoteBox.innerText = `"${random}"`;
-    quoteBox.style.opacity = "0";
-    setTimeout(() => {
-        quoteBox.style.opacity = "1";
-    }, 50);
+  const quoteBox = document.getElementById("anime-quote");
+  const random = itachiQuotes[Math.floor(Math.random() * itachiQuotes.length)];
+  quoteBox.innerText = `"${random}"`;
 }
 
-document.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
-    const id = checkbox.id;
-    const saved = localStorage.getItem(id);
-    if (saved === "true") {
-        checkbox.checked = true;
-    }
+
+// document.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
+    // const id = checkbox.id;
+    // const saved = localStorage.getItem(id);
+    // if (saved === "true") {
+        // checkbox.checked = true;
+    // }
 
     // checkbox.addEventListener("change", () => {
     //     localStorage.setItem(id, checkbox.checked);
     //     generateSmartSuggestions(); // ✅ Live update here
     // });
+// });
+document.addEventListener("DOMContentLoaded", () => {
+  const quoteBox = document.getElementById("anime-quote");
+  const random = itachiQuotes[Math.floor(Math.random() * itachiQuotes.length)];
+  quoteBox.innerText = `"${random}"`;
+  quoteBox.style.opacity = "0";
+  setTimeout(() => {
+    quoteBox.style.opacity = "1";
+  }, 100); // Slight delay for fade-in
 });
-
